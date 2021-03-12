@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+table, th, td {
+    border: 1px solid rgba(255, 255, 255, 0.842);
+    border-collapse: collapse;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #00000033;
+    padding: 5px;
+    padding-left: 10px;
+    width:550px;
+    margin-left: 20px;
+    
+}
+
+ul {
+    /* background-image: linear-gradient(rgba(16, 16, 16, 0.534), rgba(0, 0, 0, 0)); */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 20px;
+    }
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: rgb(202, 202, 202);
+}
+
+h1{
+    color: white;
+    text-align: right;
+    margin-top: 6.5%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 40px;
+    text-shadow: 2px 2px 4px #000000af;
+}
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-shadow: 0px 3px 6px #000000;
+    color: white;
+    text-align: right;
+}
+
+hr{
+    height:2px;
+    border-width:0;
+    color:white;
+    background-color:white;
+    text-align: right;
+    margin-right: 0;
+    width: 63px;
+}
+
+.button {
+    background-color: rgba(3, 3, 3, 0.651); 
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    width: 275px;
+    height: 54px;
+    font-size: 15px;
+    position: fixed; /* or absolute */
+    top: 400px;
+    right: 111px;
+}
+
+.button4 {
+    background-color: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 16px;
+    box-shadow: 5px 5px 18px #111111;
+    text-align: center;
+    font-weight: 500;
+}
+
+.button4:hover {
+    background-color: #030303e5;
+}
+
+.carapakaihead{
+    background-color:#0707074f;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border-top-right-radius: 27px;
+    border-top-left-radius: 27px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 62px;
+}
+
+.carapakaicontent{
+    background-color:white;
+    height: 1285px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-left: 164px;
+    padding-right: 158px;
+    padding-top: 55px;
+    padding-bottom: 65px;
+    margin-bottom: 92px;
+    border-bottom-right-radius: 27px;
+    border-bottom-left-radius: 27px;
+}
+
+.carapakaicontent h1{
+    text-shadow: none;
+    color: #2D2D2D;
+    text-align: center;
+    margin-top: 0px;
+    
+}
+
+.carapakaicontent hr{
+    background-color:  #2d2d2d6e;
+    text-align: center;
+    margin-right: 45%;
+}
+
+.cpisi{
+    margin-top: 100px;
+}
+
+.cpisi h1,a{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.cpisi img {
+    height: 181px;
+    width: 294px;
+    background-color: #555;
+    float: left;
+    margin-right: 48px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+.trademark{
+    margin-left:32%;
+    margin-top:-20px;
+    color:rgba(43, 43, 43, 0.501);
+    font-size:12px;
+}

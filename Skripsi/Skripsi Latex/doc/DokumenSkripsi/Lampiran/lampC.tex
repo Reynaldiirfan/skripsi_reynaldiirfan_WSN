@@ -1,0 +1,1164 @@
+%versi 3 (18-12-2016)
+\chapter{Kode Program Aplikasi Pengguna (Website)}
+\label{lamp:C}
+
+%terdapat 2 cara untuk memasukkan kode program
+% 1. menggunakan perintah \lstinputlisting (kode program ditempatkan di folder yang sama dengan file ini)
+% 2. menggunakan environment lstlisting (kode program dituliskan di dalam file ini)
+% Perhatikan contoh yang diberikan!!
+%
+% untuk keduanya, ada parameter yang harus diisi:
+% - language: bahasa dari kode program (pilihan: Java, C, C++, PHP, Matlab, C#, HTML, R, Python, SQL, dll)
+% - caption: nama file dari kode program yang akan ditampilkan di dokumen akhir
+%
+% Perhatian: Abaikan warning tentang textasteriskcentered!!
+%
+
+\begin{lstlisting}[language=PHP, caption=skripsi\_header.blade.php]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <title>Home</title>
+    <link href="{{ asset('css/skripsi_mainstyle.css') }}" rel="stylesheet" type="text/css" >
+</head>
+<style>
+</style>
+
+<body>
+    
+    <ul style="margin-top: 4px;">
+        <li><img src="assets/logo2.png" style="height: 38px;margin-top: 8px;;"></li>
+        <li><a href="/">Halaman Utama</a></li>
+        <li><a href="/check-status">Check Status</a></li>
+        <li><a href="/sensing">Sensing</a></li>
+
+
+        <li style="float: right;"><a href="/cara-pakai">Cara Pakai</a></li>
+        <li style="float: right;"><a href="/print-sensing">Print Sensing</a></li>
+        
+    </ul>
+    
+</body>
+</html>
+\end{lstlisting}
+
+\begin{lstlisting}[language=PHP, caption=skripsi\_home.blade.php]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('assets/unpar.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <title>Halaman Utama | Skripsi</title>
+    <link href="{{ asset('css/skripsi_mainstyle.css') }}" rel="stylesheet" type="text/css" >
+</head>
+<style>
+    body{
+        background-image: url("assets/home_bg.jpg");
+        background-size: cover;
+        padding-left: 99px;
+        padding-right: 108px;
+    }
+</style>
+<body>
+    @include('skripsi_header')
+
+    <h1>Aplikasi Pemantauan<br> 
+        Kualitas Tanah Sawah<br>
+        Berbasis WSN
+    </h1>
+
+    <hr>
+
+    <h2>
+        Reynaldi Irfan A <br>
+        2016730045
+    </h2>
+
+    <button class="button button4" onclick="location.href='{{ url('sensing') }}'">Let's Get Started</button>
+</body>
+</html>
+\end{lstlisting}
+
+\begin{lstlisting}[language=PHP, caption=skripsi\_checkstatus.blade.php]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('assets/unpar.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Check Status | Skripsi</title>
+    <link href="{{ asset('css/skripsi_mainstyle.css') }}" rel="stylesheet" type="text/css" >
+</head>
+<style>
+    body{
+        background-image: url("assets/sensing_bg.jpg") ;
+        background-size: 100%;
+        padding-left: 99px;
+        padding-right: 108px;
+        background-repeat: no-repeat;
+    }
+</style>
+<body>
+    @include('skripsi_header')
+    <br>
+    <table style="margin-top: 15px;float: left; width:45%;" id="table1">
+        @foreach ($check1 as $check1)
+        <tr style="background-color: rgba(0, 0, 0, 0.5)">
+          <th>Variable</th>
+          <th>Value</th> 
+        </tr>
+        <tr>
+            <td>Nama Node</td>
+            <td>{{ $check1->nama_node}}</td>
+          </tr>
+        <tr>
+          <td>Status Node</td>
+          <td id="n1_aktif">{{ $check1->status_node}}</td>
+        </tr>
+	<tr>
+          <td>Status Sensing</td>
+          <td id="n1_sensing">{{ $check1->status_sensing}}</td>
+        </tr>
+        @endforeach
+    </table>
+
+    <table style="margin-top: 15px;float: left; width:45%;" id="table2">
+        @foreach ($check2 as $check2)
+        <tr style="background-color: rgba(0, 0, 0, 0.5)">
+          <th>Variable</th>
+          <th>Value</th> 
+        </tr>
+        <tr>
+            <td>Nama Node</td>
+            <td>{{ $check2->nama_node}}</td>
+          </tr>
+        <tr>
+          <td>Status Node</td>
+          <td id="n2_aktif">{{ $check2->status_node}}</td>
+        </tr>
+	<tr>
+          <td>Status Sensing</td>
+          <td id="n2_sensing">{{ $check2->status_sensing}}</td>
+        </tr>
+        @endforeach
+    </table>
+
+    <br>
+
+    <table style="margin-top: 24px;float: left; width:45%;" id="table3">
+        @foreach ($check3 as $check3)
+        <tr style="background-color: rgba(0, 0, 0, 0.5)">
+          <th>Variable</th>
+          <th>Value</th> 
+        </tr>
+        <tr>
+            <td>Nama Node</td>
+            <td>{{ $check3->nama_node}}</td>
+          </tr>
+        <tr>
+          <td>Status Node</td>
+          <td id="n3_aktif">{{ $check3->status_node}}</td>
+        </tr>
+	<tr>
+          <td>Status Sensing</td>
+          <td id="n3_sensing">{{ $check3->status_sensing}}</td>
+        </tr>
+        @endforeach
+    </table>
+
+    <table style="margin-top: 24px;float: left; width:45%;" id="table4">
+        @foreach ($check4 as $check4)
+        <tr style="background-color: rgba(0, 0, 0, 0.5)">
+          <th>Variable</th>
+          <th>Value</th> 
+        </tr>
+        <tr>
+            <td>Nama Node</td>
+            <td>{{ $check4->nama_node}}</td>
+          </tr>
+        <tr>
+          <td>Status Node</td>
+          <td id="n4_aktif">{{ $check4->status_node}}</td>
+        </tr>
+	<tr>
+          <td>Status Sensing</td>
+          <td id="n4_sensing">{{ $check4->status_sensing}}</td>
+        </tr>
+        @endforeach
+    </table>
+
+    <br>
+
+    <table style="margin-top: 24px;float: left;margin-left:26%; " id="table5">
+        @foreach ($check5 as $check5)
+        <tr style="background-color: rgba(0, 0, 0, 0.5)">
+          <th>Variable</th>
+          <th>Value</th> 
+        </tr>
+        <tr>
+            <td>Nama Node</td>
+            <td>{{ $check5->nama_node}}</td>
+          </tr>
+        <tr>
+          <td>Status Node</td>
+          <td id="n5_aktif">{{ $check5->status_node}}</td>
+        </tr>
+        @endforeach
+    </table>
+    
+    <div style="margin-left:15px;margin-top: 418px;">
+        <img src="assets/back.png"><a href="/" style="color: white;">Kembali</a>
+    </div>
+    
+    <form method="post" action="/check-status/update/">
+        {{ csrf_field() }}
+        {{ method_field('PUT') }}
+        <button class="button button4" style="visibility:hidden;" onclick="changeButtonText()" value="online" id="sensing_button" style="margin-top: 140px;margin-right: 15px;">Update</button>
+    </form>
+    
+</body>
+
+<script>
+      var buttonSensing = document.getElementById('sensing_button').value;
+  var statusSensing = "true";
+  
+    
+    var node1Stat = document.getElementById('n1_aktif').textContent;
+    var node1Sens = document.getElementById('n1_sensing').textContent;
+    
+    var node2Stat = document.getElementById('n2_aktif').textContent;
+    var node2Sens = document.getElementById('n2_sensing').textContent;
+
+    var node3Stat = document.getElementById('n3_aktif').textContent;
+    var node3Sens = document.getElementById('n3_sensing').textContent;
+
+    var node4Stat = document.getElementById('n4_aktif').textContent;
+    var node4Sens = document.getElementById('n4_sensing').textContent;
+
+    var node5Stat = document.getElementById('n5_aktif').textContent;
+
+    //CHECK STATUS NODE
+    if(node1Stat!='Online'){
+      document.getElementById('n1_aktif').style.color="yellow";
+      document.getElementById('n1_sensing').style.color="yellow";
+    }
+    if(node2Stat!='Online'){
+      document.getElementById('n2_aktif').style.color="yellow";
+      document.getElementById('n2_sensing').style.color="yellow";
+    }
+    if(node3Stat!='Online'){
+      document.getElementById('n3_aktif').style.color="yellow";
+      document.getElementById('n3_sensing').style.color="yellow";
+    }
+    if(node4Stat!='Online'){
+      document.getElementById('n4_aktif').style.color="yellow";
+      document.getElementById('n4_sensing').style.color="yellow";
+    }
+    if(node5Stat!='Online'){
+      document.getElementById('n5_aktif').style.color="yellow";
+    }
+
+    //CHECK STATUS SENSING
+    if(node1Sens!='Sensing'){
+      document.getElementById('n1_sensing').style.color="yellow";
+    }
+    if(node2Sens!='Sensing'){
+      document.getElementById('n2_sensing').style.color="yellow";
+    }
+    if(node3Sens!='Sensing'){
+      document.getElementById('n3_sensing').style.color="yellow";
+    }
+    if(node4Sens!='Sensing'){
+      document.getElementById('n4_sensing').style.color="yellow";
+    }
+    
+    
+    //TIMER UPDATE 30 sec STATUS NODE
+    if(node1Stat=='Online'){
+        setTimeout(setStatusN1, 30000);
+    }
+    if(node2Stat=='Online'){
+        setTimeout(setStatusN2, 30000);
+    }
+    if(node3Stat=='Online'){
+        setTimeout(setStatusN3, 30000);
+    }
+    if(node4Stat=='Online'){
+        setTimeout(setStatusN4, 30000);
+    }
+        
+    
+    //GANTI STATUS    
+    function setStatusN1() {
+        node1Stat='Offline'
+        node1Sens!='Not Sensing'
+    }
+    function setStatusN2() {
+        node2Stat='Offline'
+        node1Sens!='Not Sensing'
+    }
+    function setStatusN3() {
+        node3Stat='Offline'
+        node1Sens!='Not Sensing'
+    }
+    function setStatusN4() {
+        node4Stat='Offline'
+        node1Sens!='Not Sensing'
+    }
+    
+</script>
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=PHP, caption=skripsi\_sensing.blade.php]
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('assets/unpar.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Sensing | Skripsi</title>
+    <link href="{{ asset('css/skripsi_mainstyle.css') }}" rel="stylesheet" type="text/css" >
+</head>
+{{-- <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
+<script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('c559846b0d74d3af1611', {
+      cluster: 'ap1'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+    });
+  </script> TADINYA UNTUK WEBSOCKET--}}  
+<style>
+    body{
+        background-image: url("assets/sensing_bg.jpg") ;
+        background-size: cover;
+        padding-left: 99px;
+        padding-right: 108px;
+    }
+</style>
+<body>
+  @include('skripsi_header')
+
+    <table style="margin-top: 15px;float: left; width:45%;" id="table1">
+      @foreach ($nodes1 as $node1)
+      <tr style="background-color: rgba(0, 0, 0, 0.5)">
+        <th>Variable</th>
+        <th>Value</th> 
+      </tr>
+      <tr>
+          <td>Nama Node</td>
+          <td id="namanode1">{{ $node1->nama_node }}</td>
+        </tr>
+      <tr>
+        <td>Keasaman (pH)</td>
+        <td id="node1_ph">{{ $node1->ph_tanah }}</td>
+      </tr>
+      <tr>
+        <td>Kelembaban Tanah</td>
+        <td id="node1_lembab">{{ $node1->kelembaban_tanah }} %</td>
+      </tr>
+      <tr>
+        <td>Suhu Tanah</td>
+        <td id="node1_suhuTh">{{ $node1->suhu_tanah }} <span>&#8451;</span></td>
+      </tr>
+      <tr>
+        <td>Suhu Udara</td>
+        <td id="node1_suhu">{{ $node1->suhu_udara }} <span>&#8451;</span></td>
+      </tr>
+      <tr>
+        <td>Waktu Sensing</td>
+        <td id="node1_waktu">{{ $node1->waktu_sensing }}</td>
+      </tr>
+      @endforeach
+    </table>
+
+    <table style="margin-top: 15px;float: left; width:45%;" id="table2">
+      @foreach ($nodes2 as $node2)
+      <tr style="background-color: rgba(0, 0, 0, 0.5)">
+        <th>Variable</th>
+        <th>Value</th> 
+      </tr>
+      <tr>
+          <td>Nama Node</td>
+          <td>{{ $node2->nama_node }}</td>
+        </tr>
+      <tr>
+        <td>Keasaman (pH)</td>
+        <td id="node2_ph">{{ $node2->ph_tanah }}</td>
+      </tr>
+      <tr>
+        <td>Kelembaban Tanah</td>
+        <td id="node2_lembab">{{ $node2->kelembaban_tanah }} %</td>
+      </tr>
+      <tr>
+        <td>Suhu Tanah</td>
+        <td id="node2_suhuTh">{{ $node2->suhu_tanah }} <span>&#8451;</span></td>
+      </tr>
+      <tr>
+        <td>Suhu Udara</td>
+        <td id="node2_suhu">{{ $node2->suhu_udara }} <span>&#8451;</span></td>
+      </tr>
+      <tr>
+        <td>Waktu Sensing</td>
+        <td id="node2_waktu">{{ $node2->waktu_sensing }} </td>
+      </tr>
+      @endforeach
+    </table>
+
+    <br>
+
+    <table style="margin-top: 16px;float: left; width:45%;" id="table3">
+      @foreach ($nodes3 as $node3)
+        <tr style="background-color: rgba(0, 0, 0, 0.5)">
+          <th>Variable</th>
+          <th>Value</th> 
+        </tr>
+        <tr>
+            <td>Nama Node</td>
+            <td>{{ $node3->nama_node }}</td>
+          </tr>
+        <tr>
+          <td>Keasaman (pH)</td>
+          <td id="node3_ph">{{ $node3->ph_tanah }}</td>
+        </tr>
+        <tr>
+          <td>Kelembaban Tanah</td>
+          <td id="node3_lembab">{{ $node3->kelembaban_tanah }} %</td>
+        </tr>
+        <tr>
+          <td>Suhu Tanah</td>
+          <td id="node3_suhuTh">{{ $node3->suhu_tanah }} <span>&#8451;</span></td>
+        </tr>
+        <tr>
+          <td>Suhu Udara</td>
+          <td id="node3_suhu">{{ $node3->suhu_udara }} <span>&#8451;</span></td>
+        </tr>
+        <tr>
+          <td>Waktu Sensing</td>
+          <td id="node3_waktu">{{ $node3->waktu_sensing }} </td>
+        </tr>
+        @endforeach
+    </table>
+
+    <table style="margin-top: 20px;float: left; width:45%;" id="table4" >
+      @foreach ($nodes4 as $node4)
+      <tr style="background-color: rgba(0, 0, 0, 0.5)">
+        <th>Variable</th>
+        <th>Value</th> 
+      </tr>
+      <tr>
+          <td>Nama Node</td>
+          <td>{{ $node4->nama_node }}</td>
+        </tr>
+      <tr>
+        <td>Keasaman (pH)</td>
+        <td id="node4_ph">{{ $node4->ph_tanah }}</td>
+      </tr>
+      <tr>
+        <td>Kelembaban Tanah</td>
+        <td id="node4_lembab">{{ $node4->kelembaban_tanah }} %</td>
+      </tr>
+      <tr>
+        <td>Suhu Tanah</td>
+        <td id="node4_suhuTh">{{ $node4->suhu_tanah }} <span>&#8451;</span></td>
+      </tr>
+      <tr>
+        <td>Suhu Udara</td>
+        <td id="node4_suhu">{{ $node4->suhu_udara }} <span>&#8451;</span></td>
+      </tr>
+      <tr>
+        <td>Waktu Sensing</td>
+        <td id="node4_waktu">{{ $node4->waktu_sensing }} </td>
+      </tr>
+      @endforeach
+    </table>
+
+    <button style="visibility:hidden;" class="button button4" onclick="changeButtonText()" value="online" id="sensing_button" style="margin-top: 140px;margin-right: 15px;">Pause Alert</button>
+    
+    <!-- <div style="margin-left:15px;margin-top: 468px;">
+      <img src="assets/back.png"><a href="/" style="color: white;">Kembali</a>
+    </div> -->
+    
+    <script>
+ 
+
+  var buttonSensing = document.getElementById('sensing_button').value;
+  var statusSensing = "true";
+  
+
+  function changeButtonText(){
+    if(buttonSensing=="offline"){ 
+      document.getElementById('sensing_button').innerHTML = 'Stop Sensing';
+      buttonSensing = "online";
+      alert("Sensing akan dimulai !");
+      statusSensing = "true";
+      location.reload(),6000;
+      return false;
+      
+      
+    }
+    else{ 
+      document.getElementById('sensing_button').innerHTML = 'Mulai Sensing';
+      alert("Sensing dihentikan! Klik OK untuk melanjutkan sensing");
+      
+      
+      var table1 = document.getElementById('table1');
+      var table2 = document.getElementById('table2');
+      var table3 = document.getElementById('table3');
+      var table = document.getElementById('table4');
+      var lengthTable = table.rows.length;
+
+      for(i=1;i<lengthTable;i++){
+        var cells = table.rows.item(i).cells;
+        var cells1 = table1.rows.item(i).cells;
+        var cells2 = table2.rows.item(i).cells;
+        var cells3 = table3.rows.item(i).cells;
+
+        //gets amount of cells of current row
+        var cellLength =cells.length;
+
+        //loops through each cell in current row
+        for(var j = 1; j < cellLength; j++){
+          /* get your cell info here */
+          cells.item(j).innerHTML= '-';
+          cells1.item(j).innerHTML= '-';
+          cells2.item(j).innerHTML= '-';
+          cells3.item(j).innerHTML= '-';
+        }
+      }
+      buttonSensing = "offline";
+      statusSensing = "false";
+    }
+  }
+  
+    if(statusSensing=="true"){
+        setTimeout(function() {
+        location.reload();
+      }, 5000);
+    }
+
+    //CHECK KLASIFIKASI PH TANAH
+    var nPh1 = parseFloat(document.getElementById('node1_ph').textContent);
+    var nPh2 = parseFloat(document.getElementById('node2_ph').textContent);
+    var nPh3 = parseFloat(document.getElementById('node3_ph').textContent);
+    //var nPh4 = parseFloat(document.getElementById('node4_ph').textContent);
+
+    if(nPh1!=7){
+        document.getElementById('node1_ph').style.color = "yellow";
+    }
+    if(nPh2!=7){
+        document.getElementById('node2_ph').style.color = "yellow";
+    }
+    
+    if(nPh3!=7){
+        document.getElementById('node3_ph').style.color = "yellow";
+    }
+    /**
+    if(nPh4!=7){
+        document.getElementById('node4_ph').style.color = "yellow";
+    }
+    **/
+
+    //CHECK KLASIFIKASI KELEMBABAN TANAH
+    var nLembab1 = parseFloat(document.getElementById('node1_lembab').textContent);
+    var nLembab2 = parseFloat(document.getElementById('node2_lembab').textContent);
+    var nLembab3 = parseFloat(document.getElementById('node2_lembab').textContent);
+    //var nLembab4 = parseFloat(document.getElementById('node2_lembab').textContent);
+
+    if(nLembab1<40 || nLembab1>62){
+        document.getElementById('node1_lembab').style.color = "yellow";
+    }
+    if(nLembab2<40 || nLembab2>62){
+        document.getElementById('node2_lembab').style.color = "yellow";
+    }
+    
+    if(nLembab3<40 || nLembab3>62){
+        document.getElementById('node3_lembab').style.color = "yellow";
+    }
+    /**
+    if(nLembab4<40 || nLembab4>62){
+        document.getElementById('node4_lembab').style.color = "yellow";
+    }
+    **/
+
+    //CHECK KLASIFIKASI SUHU TANAH
+    var nSuhuTh1 = parseFloat(document.getElementById('node1_suhuTh').textContent);
+    var nSuhuTh2 = parseFloat(document.getElementById('node2_suhuTh').textContent);
+    var nSuhuTh3 = parseFloat(document.getElementById('node3_suhuTh').textContent);
+    //var nSuhuTh4 = parseFloat(document.getElementById('node4_suhuTh').textContent);
+  
+
+    if(nSuhuTh1<10 || nSuhuTh1>30){
+        document.getElementById('node1_suhuTh').style.color = "yellow";
+    }
+    if(nSuhuTh2<10 || nSuhuTh2>30){
+        document.getElementById('node2_suhuTh').style.color = "yellow";
+    }
+    
+    if(nSuhuTh3<10 || nSuhuTh3>30){
+        document.getElementById('node3_suhuTh').style.color = "yellow";
+    }
+    /**
+    if(nSuhuTh4<10 || nSuhuTh4>30){
+        document.getElementById('node4_suhuTh').style.color = "yellow";
+    }
+    **/
+
+    //CHECK KLASIFIKASI SUHU UDARA
+    var nSuhu1 = parseFloat(document.getElementById('node1_suhu').textContent);
+    var nSuhu2 = parseFloat(document.getElementById('node2_suhu').textContent);
+    var nSuhu3 = parseFloat(document.getElementById('node3_suhu').textContent);
+    //var nSuhu4 = parseFloat(document.getElementById('node4_suhu').textContent);
+  
+
+    if(nSuhu1<18 || nSuhu1>26){
+        document.getElementById('node1_suhu').style.color = "yellow";
+    }
+    if(nSuhu2<18 || nSuhu2>26){
+        document.getElementById('node2_suhu').style.color = "yellow";
+    }
+    
+    if(nSuhu3<18 || nSuhu3>26){
+        document.getElementById('node3_suhu').style.color = "yellow";
+    }
+    /**
+    if(nSuhu4<18 || nSuhu4>26){
+        document.getElementById('node4_suhu').style.color = "yellow";
+    }
+    **/
+
+</script>
+</body>
+</html>
+\end{lstlisting}
+
+\begin{lstlisting}[language=PHP, caption=skripsi\_perangkat.blade.php]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('assets/unpar.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    
+    <title>Print Sensing | Skripsi</title>
+    <link href="{{ asset('css/skripsi_mainstyle.css') }}" rel="stylesheet" type="text/css" >
+</head>
+<style>
+    body{
+        background-image: url("assets/under_maintenance.jpg") ;
+        background-repeat: repeat-y;
+        background-size: 100%;
+        padding-left: 99px;
+        padding-right: 108px;}
+        
+    .dropbtn {
+          background-color: lightgrey;
+          color: black;
+          padding: 4px;
+          font-size: 15px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+          background-color: #EEEDED;
+        }
+
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #EEEDED;
+          min-width: 160px;
+          overflow: auto;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        .dropdown a:hover {background-color: #ddd;}
+
+        .show {display: block;}
+</style>
+<body>
+    @include('skripsi_header')
+    
+    <div style="position:center;margin-top:20px">
+        <form action="/print-sensing/cari" method="GET">
+            
+            <a style="color:white">Mulai :</a> 
+            <input placeholder="Date" name="cariAwal" class="textbox-n" type="text" onfocus="(this.type='date')" id="date" value="{{ old('cariAwal') }}">
+            
+            <a style="color:white; padding-left:10px">Sampai :</a>
+            <input placeholder="Date" name="cariAkhir" class="textbox-n" type="text" onfocus="(this.type='date')" id="date" value="{{ old('cariAkhir') }}">
+            
+            <input type="submit" value="cari">
+        </form>
+        
+                    
+        
+              
+        <button onclick="window.print()" style="float:right;style="border-radius:5px;"">Print</button>
+        
+        <div class="dropdown" style="float:right;margin-right:10px">
+          <button onclick="myFunction()" class="dropbtn">Urutkan <i class="fas fa-angle-down"></i> </button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="/print-sensing/sortkode">Kode Petak</a>
+            <a href="/print-sensing">Waktu Sensing</a>
+          </div>
+        </div>
+    </div>
+    
+    
+    <table style="margin-top: 24px;float: left; width:100%;" id="table1">
+    
+      <tr style="background-color: rgba(0, 0, 0, 0.5)">
+        <!--<th>ID Sensing</th>
+        <th>Jenis Tanah</th> -->
+        <th>Kode Petak</th> 
+        <th>Waktu Sensing</th> 
+        <th>Keasaman (pH)</th> 
+        <th>Kelembaban Tanah</th> 
+        <th>Kelembaban Udara</th> 
+        <th>Suhu Tanah</th> 
+        <th>Suhu Udara</th> 
+      </tr>
+      @foreach ($tanah1 as $tanah1)
+      <tr>
+        <!--<td>{{$tanah1->id_tanah}}</td>-->
+        <!--<td>{{$tanah1->jenis_tanah}}</td>-->
+        <td>{{$tanah1->kode_node}}</td>
+        <td>{{$tanah1->waktu_sensing}}</td>
+        <td>{{$tanah1->ph_tanah}}</td>
+        <td>{{$tanah1->kelembaban_tanah}}</td>
+        <td>{{$tanah1->kelembaban_udara}}</td>
+        <td>{{$tanah1->suhu_tanah}}</td>
+        <td>{{$tanah1->suhu_udara}}</td>
+    
+        
+      </tr>
+      @endforeach
+    </table>
+    
+<script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+</script>
+    
+</body>
+
+</html>
+\end{lstlisting}
+
+\begin{lstlisting}[language=PHP, caption=skripsi\_carapakai.blade.php]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="{{ asset('assets/unpar.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Cara Pakai | Skripsi</title>
+    <link href="{{ asset('css/skripsi_mainstyle.css') }}" rel="stylesheet" type="text/css" >
+</head>
+<style>
+    body{
+        background-image: url("assets/carapakai_bg.jpg") ;
+        background-size: 100%;
+        padding-left: 99px;
+        padding-right: 108px;
+        background-repeat: no-repeat;
+        /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    }
+</style>
+<body style="background-color: #ececec41;">
+    @include('skripsi_header')
+
+    <h1>Aplikasi Pemantauan<br> 
+        Kualitas Tanah Sawah<br>
+        Berbasis WSN
+    </h1>
+
+    <hr>
+
+    <h2 style="font-size: 14px;">
+        Skripsi II<br>
+    </h2>
+
+    <div class="carapakaihead">
+        <img src="assets/carapakai1.png" style="width:78%;height:78%;">
+    </div>
+    <div class="carapakaicontent">
+        <h1>Cara Penggunaan</h1>
+        <hr>
+        <div class="cpisi" style="margin-top: 80px;">
+            <img src="assets/cp1.jpg">
+                <h1>Aktifkan Perangkat</h1>
+                <a>Aktifkan seluruh node sensor (perangkat keras Arduino dan Raspberry) 
+                   juga pastikan setiap sensor sensing pada setiap node sensor aktif 
+                   ,untuk melakukan pemantauan kualitas tanah sawah yang diuji.
+                </a>
+        </div>
+
+
+        <div class="cpisi">
+            <img src="assets/cp2.jpeg">
+                <h1>Sebar Perangkat</h1>
+                <a>Sebarkan node sensor ke berbagai titik sesuai dengan topologi yang digunakan.
+                    Penyebaran node sensor dilakukan pada satu bidang petak tanah sawah.
+                    Untuk node sensor Raspberry akan terhubung langsung dengan laptop.
+                </a>
+        </div>
+
+        <div class="cpisi">
+            <img src="assets/cp3.jpg">
+                <h1>Aktifkan Internet</h1>
+                <a>Pastikan laptop yang terhubung dengan perangkat Rapsberry terhubung dengan internet.
+                    Hasil sensing yang didapatkan oleh node sensor akan dikirimkan ke Rapsberry lalu disimpan
+                    di internet (local-host).
+                </a>
+        </div>
+
+        <div class="cpisi">
+            <img src="assets/cp4.jpg">
+                <h1>Lakukan Sensing</h1>
+                <a>Untuk melakukan sensing, masuk ke halaman sensing pada website. Hasil sensing yang 
+                    diambil oleh node sensor secara otomatis akan ditampilkan pada halaman tersebut.
+                    Pengguna juga dapat menghentikan sensing ataupun memulai kembali sensing pada halaman tersebut.
+                </a>
+        </div>      
+    </div>
+
+    <a class="trademark">Pengembangan Aplikasi Pemantauan Kualitas Tanah Sawah Berbasis WSN</a>
+
+</body>
+</html>
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=PHP, caption=web.php]
+<?php
+use App\Event\TaskEvent;
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('skripsi_home');
+});
+
+Route::get('/cara-pakai', function () {
+    return view('skripsi_carapakai');
+});
+
+Route::get('/print-sensing', function () {
+    return view('skripsi_perangkat');
+});
+
+Route::get('/GIS', function () {
+    return view('skripsi_gis');
+});
+
+
+Route::get('/print-sensing','PrintViewController@index');
+Route::get('/print-sensing/cari','PrintViewController@cari');
+Route::get('/print-sensing/sortkode','PrintViewController@sortkode');
+
+Route::get('/GIS','GISViewController@index');
+
+Route::get('/sensing','SensingViewController@index');
+
+Route::get('/check-status','StatusViewController@index');
+Route::get('/check-status/update','StatusViewController@update');
+Route::put('/check-status/update', 'StatusViewController@update');
+
+Route::get('event', function () {
+    event(new TaskEvent('Hey How Are You'));
+});
+
+
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=PHP, caption=controller.php]
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+
+class Controller extends BaseController
+{
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=PHP, caption=StatusViewController.php]
+<?php
+    namespace App\Http\Controllers;
+    use Illuminate\Http\Request;
+    use DB;
+    use App\Http\Requests;
+    use App\Http\Controllers\Controller;
+
+    class StatusViewController extends Controller {
+        public function index(){
+            $check1 = DB::select(
+                'SELECT nama_node,status_node,status_sensing 
+                    FROM `nodesensor` 
+                WHERE kode_node= 1'
+            );
+            $check2 = DB::select(
+                'SELECT nama_node,status_node,status_sensing 
+                    FROM `nodesensor` 
+                WHERE kode_node= 2'
+            );
+            $check3 = DB::select(
+                'SELECT nama_node,status_node,status_sensing 
+                    FROM `nodesensor` 
+                WHERE kode_node= 3'
+            );
+            $check4 = DB::select(
+                'SELECT nama_node,status_node,status_sensing 
+                    FROM `nodesensor` 
+                WHERE kode_node= 4'
+            );
+            $check5 = DB::select(
+                'SELECT nama_node,status_node,status_sensing 
+                    FROM `nodesensor` 
+                WHERE kode_node= 5'
+            );
+            return view('skripsi_checkstatus',['check1'=>$check1,'check2'=>$check2,'check3'=>$check3,'check4'=>$check4,
+            'check5'=>$check5]); 
+        }
+    
+        
+        public function update(){
+        DB::select(
+          'UPDATE 
+                nodesensor 
+            SET 
+                status_node = "Offline" ,status_sensing = "Not Sensing" 
+            WHERE
+                kode_node != 5');
+        
+        return redirect('/check-status');
+        }
+    }
+\end{lstlisting}
+
+\begin{lstlisting}[language=PHP, caption=PrintViewController.php]
+<?php
+    namespace App\Http\Controllers;
+    use Illuminate\Http\Request;
+    use DB;
+    use App\Http\Requests;
+    use App\Http\Controllers\Controller;
+
+    class PrintViewController extends Controller {
+        public function index(){
+			$tanah1 = DB::select
+			    ('SELECT
+				*
+			      FROM
+				tanah
+			       ORDER BY
+				waktu_sensing DESC
+				LIMIT
+				    30');
+            
+            return view('skripsi_perangkat',['tanah1'=>$tanah1]); 
+        }
+        
+        public function cari(Request $request)
+		{
+			// menangkap data pencarian
+			$cariAwal = $request->cariAwal;
+			$cariAkhir = $request->cariAkhir;
+	 
+			// mengambil data dari table sensing sesuai pencarian data
+			$tanah1 = DB::table('sensing')
+			->where('waktu_sensing','>',$cariAwal)
+			->where('waktu_sensing','<',$cariAkhir)
+			->paginate();
+	 
+			// mengirim data pegawai ke view index
+			return view('skripsi_perangkat',['tanah1' => $tanah1]);
+	 
+		}
+		
+	public function sortkode(){
+	    $tanah1 = DB::select
+			    ('SELECT
+				*
+			      FROM
+				sensing
+			       ORDER BY
+				kode_node ASC,waktu_sensing DESC
+			    ');
+				    
+	    return view('skripsi_perangkat',['tanah1'=>$tanah1]);
+	}
+	    
+    }
+\end{lstlisting}
+
+\begin{lstlisting}[language=PHP, caption=SensingViewController.php]
+<?php
+    namespace App\Http\Controllers;
+    use Illuminate\Http\Request;
+    use DB;
+    use App\Http\Requests;
+    use App\Http\Controllers\Controller;
+
+    class SensingViewController extends Controller {
+        public function index(){
+            $nodes1 = DB::select(
+                'SELECT 
+                    nodesensor.kode_node  , waktu_sensing ,nodesensor.nama_node,ph_tanah,kelembaban_tanah,suhu_tanah,suhu_udara 
+                FROM
+                    nodesensor JOIN sensing ON sensing.kode_node = nodesensor.kode_node JOIN tanah ON tanah.id_Tanah = nodesensor.kode_node
+                WHERE
+                    waktu_sensing IN (SELECT 
+                        max(waktu_sensing)
+                    FROM
+                        sensing
+                    WHERE
+                        kode_node = 1)'
+            );
+            $nodes2 = DB::select(
+               'SELECT 
+                    nodesensor.kode_node  , waktu_sensing ,nodesensor.nama_node,ph_tanah,kelembaban_tanah,suhu_tanah,suhu_udara 
+                FROM
+                    nodesensor JOIN sensing ON sensing.kode_node = nodesensor.kode_node JOIN tanah ON tanah.id_Tanah = nodesensor.kode_node
+                WHERE
+                    waktu_sensing IN (SELECT 
+                        max(waktu_sensing)
+                    FROM
+                        sensing
+                    WHERE
+                        kode_node = 2)'
+            );
+            $nodes3 = DB::select(
+                'SELECT 
+                    nodesensor.kode_node  , waktu_sensing ,nodesensor.nama_node,ph_tanah,kelembaban_tanah,suhu_tanah,suhu_udara 
+                FROM
+                    nodesensor JOIN sensing ON sensing.kode_node = nodesensor.kode_node JOIN tanah ON tanah.id_Tanah = nodesensor.kode_node
+                WHERE
+                    waktu_sensing IN (SELECT 
+                        max(waktu_sensing)
+                    FROM
+                        sensing
+                    WHERE
+                        kode_node = 3)'
+            );
+            $nodes4 = DB::select(
+                'SELECT 
+                    nodesensor.kode_node  , waktu_sensing ,nodesensor.nama_node,ph_tanah,kelembaban_tanah,suhu_tanah,suhu_udara 
+                FROM
+                    nodesensor JOIN sensing ON sensing.kode_node = nodesensor.kode_node JOIN tanah ON tanah.id_Tanah = nodesensor.kode_node
+                WHERE
+                    waktu_sensing IN (SELECT 
+                        max(waktu_sensing)
+                    FROM
+                        sensing
+                    WHERE
+                        kode_node = 4)'
+            );
+            return view('skripsi_sensing',['nodes1'=>$nodes1,'nodes2'=>$nodes2,'nodes3'=>$nodes3,'nodes4'=>$nodes4]); 
+        }
+    }
+\end{lstlisting}
+
+
+% \lstinputlisting[language=Java, caption=MyCode.java]{./Lampiran/MyCode.java} 
+
+
+

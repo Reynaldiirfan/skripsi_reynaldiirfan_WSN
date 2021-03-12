@@ -1,0 +1,154 @@
+%versi 2 (8-10-2016) 
+
+\chapter{Pendahuluan}
+\label{chap:intro}
+   
+\section{Latar Belakang}
+\label{sec:label}
+
+%Bagian ini akan diisi dengan apa yang melatarbelakangi pembuatan template skripsi ini.
+%Termasuk juga masalah-masalah yang akan dihadapi untuk membuatnya, termasuk kurangnya kemampuan penguasaan \LaTeX{} sehingga template ini dibuat dengan mengandalkan berbagai contoh yang tersebar di dunia maya, yang digabung-gabung menjadi satu jua.
+%Bagian lain juga akan dilengkapi, untuk sementara diisi dengan lorem ipsum versi bahasa inggris.
+
+Indonesia merupakan negara agraris terbesar di dunia, sehingga sebagian besar profesi utama masyarakat Indonesia
+adalah petani. Sebagai negara agraris, Indonesia dianugerahi kekayaan alam yang melimpah dengan
+letak geografis yang dinilai sangat strategis untuk bercocok tanam. Dipandang dari segi geografis, Indonesia
+terletak pada daerah tropis yang memiliki curah hujan yang tinggi. Iklim tropis ini memungkinkan banyak
+jenis tumbuh-tumbuhan berkembang dengan cepat, terutama tumbuhan tanaman padi\footnote{\url{https://money.kompas.com/read/2017/02/19/163912926/negara.agraris.mengapa.harga.pangan.di.indonesia.rawan.bergejolak.?page=all}}.
+
+Tanaman padi merupakan bahan pangan utama masyarakat Indonesia. Masyarakat Indonesia terbiasa untuk mengonsumsi bahan olahan padi menjadi beras, sehingga penting untuk mendapatkan tanaman padi dengan kualitas yang baik untuk dikonsumsi sehari-hari. Kualitas pertumbuhan dan perkembangan tanaman padi sangat dipengaruhi oleh kualitas tanah sawah. Banyaknya variasi jenis tanah juga mempengaruhi jenis pengelolaan
+tanaman padi agar dapat tumbuh secara optimal. Tidak hanya jenis tanah yang beragam, waktu dan jumlah pupuk yang diberikan juga berpengaruh pada kualitas tanah sawah tanaman padi.
+
+Tingkat produktivitas tanaman padi di Indonesia bervariasi bergantung pada jenis tanah dan cara pengelolaannya.
+Produktivitas lahan sawah terendah terletak di Bangka Belitung dengan hasil 27,81 ku/ha,
+sedangkan untuk produktivitas tertinggi terletak di Jawa Barat dengan hasil 59,53 ku/ha\footnote{\url{http://balittanah.litbang.pertanian.go.id/ind/dokumentasi/juknis/pemulihan\%20lahan.pdf}}. Dari data yang didapatkan oleh BPS 2014 pada tahun 2013, didapatkan rata-rata produktivitas padi nasional sekitar 51,52 ku/ha. Berdasarkan data yang dihimpun oleh Senior Expatriate Technological Cooperation Asia Pasific Food Agriculture Organization (FAO) Ratno Soetjiptadie, 69\% dari tanah Indonesia berada dalam kategori buruk. Hal ini menyebabkan kualitas tanaman padi yang dihasilkan tidak berbanding lurus dengan usaha yang dilakukan oleh petani.
+
+Faktor lain yang menyebabkan kurang baiknya kualitas padi di Indonesia adalah masih banyaknya petani yang awam mengenai variabel-variabel penting pada pengelolaan tanah sawah. Kondisi tanah sawah sangat mempengaruhi jenis pengelolaan dan kualitas panen tanaman padi. Variabel-variabel yang mempengaruhi kualitas tanah tanaman padi antara lain tingkat keasaman(pH), kelembaban, dan suhu dari kondisi tanah sawah padi. Variabel-variabel tersebut menginformasikan kondisi tanah sawah padi. 
+
+Kurangnya pengetahuan mengenai variabel-variabel tersebut, berpotensi menyebabkan salahnya pemilihan cara pengelolaan tanah pada tanaman padi. Salah satu contoh salahnya pemilihan pengelolaan tanah tanaman padi adalah pemberian pupuk pada waktu yang tidak tepat atau pemberian kuantitas pupuk yang tidak sesuai (terlalu banyak ataupun terlalu sedikit pada tanah sawah) dengan kondisi tanah sawah. Hal-hal tersebut mempengaruhi kualitas hasil panen, zat kimia yang berasal dari pupuk tersebut tidak memberikan perkembangan terhadap tanah sawah padi, dikarenakan kondisi tanah yang berbeda-beda pada titik-titik tertentu.
+
+Selain itu, sampai saat ini pengelolaan tanah sawah oleh para petani masih menggunakan perkiraan, dan pengalaman. Kurangnya informasi yang akurat dan cara yang masih tradisional untuk mengetahui kondisi tanah sawah yang dikelola, menyebabkan salahnya pemilihan pengelolaan, yang berdampak pada kurangnya produktivitas tanaman padi. Salahnya pemilihan cara pengelolaan juga menimbulkan tanah sawah menjadi tidak subur, dan berpengaruh terhadap kualitas hasil panen\footnote{\url{https://media.neliti.com/media/publications/170054-ID-none.pdf}}.
+
+Untuk mendapatkan informasi kondisi tanah sawah padi yang akurat, metode pemantauan berbasis penelitian di laboratorium masih cukup sering dilakukan. Namun, metode ini dianggap kurang praktis baik dari sisi waktu dan biaya. Luasnya lahan tanah sawah dan variasi kondisi tanah sawah yang berbeda-beda, menyebabkan sulitnya mendapatkan hasil dengan tingkat keakuratan yang tinggi. Sehingga diperlukan alat untuk mengetahui kondisi tanah sawah padi yang dapat disebar di area lahan tanah sawah dan menampilkan data yang berisikan informasi kondisi tanah sawah secara keseluruhan\footnote{\url{https://www.researchgate.net/publication/329387376_Pemantauan_Kualitas_Air_dan_Tanah_Pertanian_Secara_Daring_dan_Waktu_Nyata_untuk_Mewujudkan_Ketahanan_Pangan}}.
+
+Pemanfaatan WSN (\textit{Wireless Sensor Network}) dapat menjadi alternatif untuk melakukan pemantauan kondisi tanah sawah padi. Dengan WSN, proses pemantauan kondisi tanah dapat dilakukan dengan lebih mudah dan praktis. WSN memungkinkan pengguna untuk mendapatkan informasi seperti tingkat keasaman(pH), kelembapan, dan suhu tanah sawah secara realtime, dengan tingkat akurasi yang tinggi. Penggunaan WSN juga lebih menghemat biaya dibandingkan metode pemantauan berbasis penelitian laboratorium.
+
+Oleh karena itu dibutuhkan pengembangan aplikasi pemantauan kualitas tanah sawah menggunakan sensor berbasis WSN (\textit{Wireless Sensor Network}), yang dapat membantu petani mendapatkan informasi kondisi tanah sawah berdasarkan hasil pengolahan sensor-sensor (sensor keasaman(pH), sensor kelembapan, dan sensor suhu) terhadap tanah sawah padi. Dari informasi tersebut diharapkan petani dapat menentukan jenis pengelolaan yang tepat untuk tanah sawah padi dan mendapatkan hasil panen yang optimal, serta meningkatkan produktivitas tanaman padi dengan kualitas yang baik.
+
+
+
+
+
+
+
+
+
+
+
+%\dtext{5-10}
+
+\section{Rumusan Masalah}
+\label{sec:rumusan}
+%Bagian ini akan diisi dengan penajaman dari masalah-masalah yang sudah diidentifikasi di bagian sebelumnya. 
+Berikut adalah masalah dari pengembangan aplikasi ini:
+    \begin{enumerate}
+         \item Bagaimana memantau kualitas tanah sawah padi ?
+         \item Bagaimana membangun aplikasi pemantau kualitas tanah sawah padi menggunakan WSN ?
+    \end{enumerate}
+
+%\dtext{6}
+
+\section{Tujuan}
+\label{sec:tujuan}
+%Akan dipaparkan secara lebih terperinci dan tersturkur apa yang menjadi tujuan pembuatan template skripsi ini
+Berikut adalah tujuan dari pengembangan aplikasi ini:
+    \begin{enumerate}
+         \item Mempelajari kualitas tanah sawah berdasarkan pengukuran keasaman(pH), kelembaban, dan suhu dari kondisi tanah sawah padi dengan menggunakan sensor dan mengirimkan data pengukuran tersebut secara \textit{wireless} ke komputer.
+         
+         \item Membangun aplikasi pemantau kualitas tanah sawah berbasis WSN (\textit{Wireless Sensor Network}) dengan menggunakan perangkat keras Arduino dan Raspberry.
+    \end{enumerate}
+
+
+%\dtext{7}
+
+\section{Batasan Masalah}
+\label{sec:batasan}
+Batasan masalah yang digunakan pada Pengembangan Aplikasi Pemantauan Kualitas Tanah Sawah Berbasi WSN adalah:
+    \begin{enumerate}
+        \item Jenis tanah yang digunakan untuk penelitian adalah tanah sawah irigasi
+        \item Pembangunan jaringan tidak lebih dari satu petak sawah
+        \item Titik penyebaran sensor dilakukan di pinggir sawah
+        \item Proses sensing dilakukan saat tanah sawah padi panen
+    \end{enumerate}
+
+
+%\dtext{8}
+
+\section{Metodologi}
+\label{sec:metlit}
+Berikut adalah tahapan-tahapan yang digunakan untuk mengerjakan pengembangan aplikasi ini, antara lain :
+\begin{enumerate}
+		\item Melakukan studi litelatur
+	        \begin{itemize}
+	            \item Melakukan studi literatur mengenai kualitas kondisi tanah sawah tanaman padi
+	            \item Melakukan studi literatur mengenai WSN (\textit{Wireless Sensor Network})
+	            \item Melakukan studi litelatur mengenai komunikasi \textit{wireless}
+	            \item Melakukan studi literlatur mengenai node sensor berbasis Arduino dan pemrograman sensor
+	            \item Melakukan studi literlatur mengenai sensor \textit{sensing} berbasis Arduino 
+	            \item Melakukan studi literlatur mengenai Raspberry dan pemrograman Raspberry
+	        \end{itemize}
+	        
+	    \item Analisis kebutuhan perangkat lunak
+	    \begin{itemize}
+	        \item Mempelajari bahasa pemrograman C dan Pyhton di Arduino dan Raspberry
+	        \item Mempelajari pemrograman node Arduino dan sensor
+	        \item Mempelajari pemrograman Raspberry sebagai \textit{base station}
+            \item Mempelajari penggunakan GIS (\textit{Geographic Information System}) sebagai sistem penyimpanan data
+            \item Melakukan survei penelitian tanah sawah padi
+	    \end{itemize}
+	    
+        \item Perancangan perangkat lunak
+        \begin{itemize}
+            \item Melakukan perancangan perangkat lunak
+		    \item Membangun perangkat lunak
+        \end{itemize}
+        
+		\item Implementasi perangkat lunak
+    		\begin{itemize}
+    		    \item Melakukan studi lapangan
+		        \begin{itemize}
+		            \item Melakukan pengukuran kelembaban tanah sawah
+		            \item Melakukan pengukuran tingkat keasaman(pH) tanah sawah
+		            \item Melakukan pengukuran suhu temperatur \textit{area} persawahan
+		        \end{itemize}
+    		\end{itemize}
+		\item Pengujian perangkat lunak
+		\item Menulis dokumen skripsi
+	\end{enumerate}
+
+%\dtext{9}
+
+\section{Sistematika Pembahasan}
+\label{sec:sispem}
+Sistematika pembahasan pada Pengembangan Aplikasi Pemantauan Kualitas Tanah Sawah Berbasis WSN adalah sebagai berikut:
+\\
+
+Bab 1 memuat latar belakang masalah, rumusan masalah, tujuan, batasan masalah, dan metodologi penelitian yang menjadi rujukan pengembangan aplikasi, dan sistematika pembahasan.
+\\
+
+Bab 2 membahas teori-teori dasar yang berkaitan dengan perancangan aplikasi, yang digunakan untuk mendukung aplikasi yang dibangun. Pada bab ini akan dibahas pengertian tanah sawah, klasifikasi jenis tanah sawah,variabel yang mempengaruhi kondisi tanah sawah, dan klasifikasi kondisi tanah sawah. Akan dibahas juga deskripsi singkat sensor dan pengertian dari  WSN (\textit{Wireless Sensor Network}) beserta arsitektur dan topologinya. Deskripsi perangkat keras yang digunakan juga akan dibahas pada bab ini, antara lain deskripsi singkat sensor arduino dan \textit{base station}, perbandingan jenis-jenis sensor arduino, dan jenis-jenis sensor \textit{sensing} yang digunakan untuk penelitian tanah sawah berbasis arduino. Perangkat keras lain yang akan dibahas pada bab ini adalah Raspberry yang berperan sebagai titik penghubung data \textit{sensing} ke \textit{server} atau komputer. Pemrograman yang dilakukan pada kedua perangkat keras diatas juga akan dibahas secara sederhana di bab ini.
+\\
+
+Bab 3 berisikan deskripsi singkat perangkat lunak yang dibangun, analisis kebutuhan perangkat lunak, dan analisis cara kerja sistem. 
+\\
+
+Bab 4 memuat perancangan komunikasi antar node sensor, dari pengiriman data ke SINK (\textit{base station}) sampai diterima oleh gateway atau notebook.
+\\
+
+Bab 5 memuat implementasi perangkat lunak yang dibangun sesuai dengan hasil analisis dan perancangan yang telah dibuat, hasil pengujian Fungsional dan Eksperimental, dan masalah yang dihadapi saat implementasi.
+\\
+
+Bab 6 memuat pengujian dan kesimpulan dari perangkat lunak yang telah dibangun, beserta saran dari penulis untuk pengembangan perangkat lunak yang lebih baik.
+
+
+%\dtext{10}
